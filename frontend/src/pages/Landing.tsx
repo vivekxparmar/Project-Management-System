@@ -350,7 +350,7 @@ export default function Landing() {
             <Button
               variant="ghost"
               size="lg"
-              className="h-11 px-8 font-semibold gap-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300"
+              className="h-11 px-8 font-semibold gap-2 bg-primary text-primary-foreground transition-all duration-300"
               onClick={() => navigate("/register")}
             >
               Register Now
