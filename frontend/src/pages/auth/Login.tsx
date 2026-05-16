@@ -59,9 +59,7 @@ export default function Login() {
     }
   };
 
-  const google_url =
-    import.meta.env.VITE_GOOGLE_CALLBACK_URL ||
-    "http://localhost:5000/api/auth/google";
+  const google_url = import.meta.env.VITE_GOOGLE_CALLBACK_URL;
 
   const handleGoogle = () => {
     window.location.href = google_url;
