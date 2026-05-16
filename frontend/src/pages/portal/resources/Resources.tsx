@@ -260,13 +260,13 @@ export default function Resources() {
   };
 
   // Helper to get a proper download URL from a Cloudinary raw URL
-  const getDownloadUrl = (url: string, fileName?: string) => {
-    if (!url) return url;
-    return url.replace(
-      "/upload/",
-      `/upload/fl_attachment${fileName ? `:${fileName}` : ""}/`,
-    );
-  };
+  // const getDownloadUrl = (url: string, fileName?: string) => {
+  //   if (!url) return url;
+  //   return url.replace(
+  //     "/upload/",
+  //     `/upload/fl_attachment${fileName ? `:${fileName}` : ""}/`,
+  //   );
+  // };
 
   // Clear all filters
   const clearFilters = () => {
