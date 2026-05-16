@@ -1,0 +1,40 @@
+const express = require("express");
+const router = express.Router();
+
+const authRoutes = require("./v1/authRoutes");
+const projectRoutes = require("./v1/projectRoutes");
+const sprintRoutes = require("./v1/sprintRoutes");
+const taskRoutes = require("./v1/taskRoutes");
+const subtaskRoutes = require("./v1/subtaskRoutes");
+const backlogRoutes = require("./v1/backlogRoutes");
+const bugRoutes = require("./v1/bugRoutes");
+const commentRoutes = require("./v1/commentRoutes");
+const resourceRoutes = require("./v1/resourceRoutes");
+const teamRoutes = require("./v1/teamRoutes");
+const auditRoutes = require("./v1/auditRoutes");
+const notificationRoutes = require("./v1/notificationRoutes");
+const chatRoutes = require("./v1/chatRoutes");
+const dashboardRoutes = require("./v1/dashboardRoutes");
+const uploadRoutes = require("./v1/uploadRoutes");
+const settingsRoutes = require("./v1/settingsRoutes");
+const userRoutes = require("./v1/userRoutes");
+
+router.use("/auth", authRoutes);
+router.use("/projects", projectRoutes);
+router.use("/sprints", sprintRoutes);
+router.use("/tasks", taskRoutes);
+router.use("/subtasks", subtaskRoutes);
+router.use("/backlog", backlogRoutes);
+router.use("/bugs", bugRoutes);
+router.use("/comments", commentRoutes);
+router.use("/resources", resourceRoutes);
+router.use("/team", teamRoutes);
+router.use("/audit", auditRoutes);
+router.use("/notifications", notificationRoutes);
+router.use("/chat", chatRoutes);
+router.use("/dashboard", dashboardRoutes);
+router.use("/upload", uploadRoutes);
+router.use("/settings", settingsRoutes);
+router.use("/users", userRoutes);
+
+module.exports = router;
