@@ -4,20 +4,26 @@ import { useProjectStore, useAuthStore } from "@/stores";
 import { useSocket } from "@/hooks";
 import { useSprint } from "@/hooks";
 import { projectService } from "@/services";
-import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/layout/AppSidebar";
 import PortalHeader from "@/components/layout/PortalHeader";
 import AppLoader from "@/components/shared/AppLoader";
 import { useSidebar } from "@/components/ui/sidebar";
 
-function PortalLayout({ projectId, activeTab, children }: any) {
+interface PortalLayoutProps {
+  // projectId: string | undefined;
+  // activeTab: string;
+  children: React.ReactNode;
+}
+
+function PortalLayout({ children }: PortalLayoutProps) {
   const { state } = useSidebar();
 
   return (
     <div
       className="flex flex-col flex-1 min-w-0 overflow-hidden h-screen transition-all duration-200"
       style={{
-        marginLeft: state === "collapsed" ? "4.1rem" : "13.1rem", // matches SIDEBAR_WIDTH_ICON and SIDEBAR_WIDTH
+        marginLeft: state === "collapsed" ? "4.1rem" : "13.1rem",
       }}
     >
       {children}
@@ -87,7 +93,7 @@ export default function Page() {
   return (
     <SidebarProvider>
       <AppSidebar projectId={projectId!} activeTab={getActiveTab()} />
-      <PortalLayout projectId={projectId} activeTab={getActiveTab()}>
+      <PortalLayout>
         <PortalHeader activeTab={getActiveTab()} />
         <main className="flex-1 overflow-hidden">
           <Outlet />

@@ -6,7 +6,7 @@ import { getProjectStatusColor } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface DashboardHeaderProps {
-  lastUpdated: Date | null;
+  // lastUpdated: Date | null;
   onRefresh: () => void;
   isRefreshing: boolean;
   healthScore: number;
@@ -38,7 +38,7 @@ function HealthBadge({ score }: { score: number }) {
 }
 
 export function DashboardHeader({
-  lastUpdated,
+  // lastUpdated,
   onRefresh,
   isRefreshing,
   healthScore,
@@ -48,11 +48,11 @@ export function DashboardHeader({
     (s) => s.currentProject?.name ?? "Project",
   );
 
-  const formatTime = (date: Date) =>
-    date.toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+  // const formatTime = (date: Date) =>
+  //   date.toLocaleTimeString("en-US", {
+  //     hour: "2-digit",
+  //     minute: "2-digit",
+  //   });
 
   return (
     <div className="flex items-center gap-3 flex-wrap">

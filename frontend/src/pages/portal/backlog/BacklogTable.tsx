@@ -49,7 +49,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
+  // AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import {
   Dialog,
@@ -58,7 +58,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
+  // DialogTrigger,
 } from "@/components/ui/dialog";
 import {
   Table,
@@ -80,7 +80,10 @@ import {
 } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { useTimer } from "@/hooks";
-import type { Task, Subtask } from "@/types";
+import type {
+  Task,
+  //  Subtask
+} from "@/types";
 
 interface BacklogTableProps {
   tasks: Task[];

@@ -16,7 +16,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { projectService } from "@/services";
-import { useProjectStore, useAuthStore } from "@/stores";
+// import { useProjectStore, useAuthStore } from "@/stores";
+import { useProjectStore } from "@/stores";
 import { cn } from "@/lib/utils";
 // import type { ProjectStatus } from "@/types";
 
@@ -41,7 +42,7 @@ export default function CreateProjectDialog({
 }: CreateProjectDialogProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { addProject } = useProjectStore();
-  const user = useAuthStore((s) => s.user);
+  // const user = useAuthStore((s) => s.user);
 
   const {
     register,

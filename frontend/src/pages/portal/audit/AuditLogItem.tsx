@@ -184,13 +184,13 @@ const ENTITY_COLORS: Record<string, string> = {
 };
 
 // Format field name for display
-const formatFieldName = (field: string): string => {
-  return field
-    .replace(/_/g, " ")
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-};
+// const formatFieldName = (field: string): string => {
+//   return field
+//     .replace(/_/g, " ")
+//     .split(" ")
+//     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+//     .join(" ");
+// };
 
 // Get value as readable string
 const getValueString = (value: any): string => {
@@ -216,23 +216,23 @@ const getValueString = (value: any): string => {
 };
 
 // Build a human-readable description from changes map
-function buildChangeDescription(changes: Record<string, any>): string | null {
-  if (!changes || Object.keys(changes).length === 0) return null;
+// function buildChangeDescription(changes: Record<string, any>): string | null {
+//   if (!changes || Object.keys(changes).length === 0) return null;
 
-  const entries = Object.entries(changes);
+//   const entries = Object.entries(changes);
 
-  return entries
-    .map(([field, value]) => {
-      const fieldName = formatFieldName(field);
-      const valueStr = getValueString(value);
+//   return entries
+//     .map(([field, value]) => {
+//       const fieldName = formatFieldName(field);
+//       const valueStr = getValueString(value);
 
-      if (!valueStr || valueStr === "—") return null;
+//       if (!valueStr || valueStr === "—") return null;
 
-      return `${fieldName}: ${valueStr}`;
-    })
-    .filter(Boolean)
-    .join(" · ");
-}
+//       return `${fieldName}: ${valueStr}`;
+//     })
+//     .filter(Boolean)
+//     .join(" · ");
+// }
 
 export function AuditLogItem({ log }: AuditLogItemProps) {
   const config = ACTION_CONFIG[log.action] ?? {
@@ -247,7 +247,7 @@ export function AuditLogItem({ log }: AuditLogItemProps) {
     ENTITY_COLORS[log.entityType] ?? "bg-gray-400/15 text-gray-600";
 
   // Handle changes - could be nested (like { name: { old, new } })
-  const changeDesc = buildChangeDescription(log.changes ?? {});
+  // const changeDesc = buildChangeDescription(log.changes ?? {});
 
   // Get user info - use `user` object from response
   const user = log.user;

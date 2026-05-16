@@ -1,6 +1,6 @@
 import { RefreshCw, ScrollText } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AuditLogFilters } from "./AuditLogFilters";
+// import { AuditLogFilters } from "./AuditLogFilters";
 
 interface FilterState {
   entityType: string;
@@ -18,9 +18,9 @@ interface AuditLogHeaderProps {
 export function AuditLogHeader({
   total,
   filters,
-  onFilterChange,
+  // onFilterChange,
   onRefresh,
-  projectId,
+  // projectId,
 }: AuditLogHeaderProps) {
   const hasActiveFilters = !!(filters.entityType || filters.actorId);
 

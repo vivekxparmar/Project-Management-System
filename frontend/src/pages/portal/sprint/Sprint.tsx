@@ -10,8 +10,9 @@ import { Zap } from "lucide-react";
 
 export default function Sprint() {
   const { projectId } = useParams<{ projectId: string }>();
-  const { fetchSprints, fetchSprintTasks } = useSprint(projectId);
-  const sprints = useSprintStore((s) => s.sprints);
+  // const { fetchSprints, fetchSprintTasks } = useSprint(projectId);
+  // const sprints = useSprintStore((s) => s.sprints);
+  const { fetchSprintTasks } = useSprint(projectId);
   const currentSprint = useSprintStore((s) => s.currentSprint);
   const isSprintLoading = useSprintStore((s) => s.isLoading);
   const tasksBySprintId = useTaskStore((s) => s.tasksBySprintId);

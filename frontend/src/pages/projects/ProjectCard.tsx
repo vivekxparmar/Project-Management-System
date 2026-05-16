@@ -13,7 +13,7 @@ import {
 
 import { Calendar } from "lucide-react";
 
-import { useAuthStore } from "@/stores";
+// import { useAuthStore } from "@/stores";
 
 interface ProjectCardProps {
   project: Project;
@@ -21,7 +21,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const navigate = useNavigate();
-  const user = useAuthStore((s) => s.user);
+  // const user = useAuthStore((s) => s.user);
 
   const handleOpen = () => {
     console.log("CLICK PROJECT ID:", project._id, project);

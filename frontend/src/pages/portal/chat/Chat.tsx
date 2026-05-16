@@ -72,14 +72,18 @@ export default function Chat() {
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
-      <ChatHeader projectId={projectId!} />
+      {/* <ChatHeader projectId={projectId!} /> */}
+      <ChatHeader />
       <ChatMessageList
         messages={messages}
         currentUserId={user?._id ?? ""}
         onLoadMore={loadMore}
         hasMore={hasMore}
       />
-      <ChatInput projectId={projectId!} members={currentProject?.members || []} />
+      <ChatInput
+        projectId={projectId!}
+        members={currentProject?.members || []}
+      />
     </div>
   );
 }

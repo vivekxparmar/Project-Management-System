@@ -64,8 +64,8 @@ export default function ReportBugDialog({
     const remainingSlots = 5 - images.length;
     const filesToAdd = files.slice(0, remainingSlots);
 
-    const newUploads = [];
-    const newPreviews = [];
+    const newUploads: any = [];
+    const newPreviews: any = [];
 
     for (const file of filesToAdd) {
       try {

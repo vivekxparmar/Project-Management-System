@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+// import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 import {
@@ -72,18 +72,19 @@ export default function Settings() {
   const [archiveOpen, setArchiveOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isArchiving, setIsArchiving] = useState(false);
-  const [newLabel, setNewLabel] = useState("");
+  // const [newLabel, setNewLabel] = useState("");
 
-  const [customLabels, setCustomLabels] = useState<string[]>(
-    currentProject?.settings?.customLabels ?? [],
-  );
+  // const [customLabels, setCustomLabels] = useState<string[]>(
+  //   currentProject?.settings?.customLabels ?? [],
+  // );
 
   const {
     register,
     handleSubmit,
     // watch,
     // setValue,
-    formState: { errors, isDirty },
+    // formState: { errors, isDirty },
+    formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
       name: currentProject?.name ?? "",
@@ -106,7 +107,7 @@ export default function Settings() {
         settings: {
           defaultSprintDuration: data.defaultSprintDuration,
           defaultPriority: data.defaultPriority,
-          customLabels,
+          // customLabels,
           integrations: {
             github: data.githubUrl,
             slackWebhook: data.slackWebhook,
@@ -158,16 +159,16 @@ export default function Settings() {
     }
   };
 
-  const handleAddLabel = () => {
-    const label = newLabel.trim();
-    if (!label || customLabels.includes(label)) return;
-    setCustomLabels((prev) => [...prev, label]);
-    setNewLabel("");
-  };
+  // const handleAddLabel = () => {
+  //   const label = newLabel.trim();
+  //   if (!label || customLabels.includes(label)) return;
+  //   setCustomLabels((prev) => [...prev, label]);
+  //   setNewLabel("");
+  // };
 
-  const handleRemoveLabel = (label: string) => {
-    setCustomLabels((prev) => prev.filter((l) => l !== label));
-  };
+  // const handleRemoveLabel = (label: string) => {
+  //   setCustomLabels((prev) => prev.filter((l) => l !== label));
+  // };
 
   if (!canChangeSettings) {
     return (

@@ -84,7 +84,8 @@ export default function Team() {
   const { projectId } = useParams<{ projectId: string }>();
   const user = useAuthStore((s) => s.user);
   const { currentProject, updateProject } = useProjectStore();
-  const { canManageTeam, myRole } = useRBAC();
+  // const { canManageTeam, myRole } = useRBAC();
+  const { canManageTeam } = useRBAC();
 
   // const [isLoading, setIsLoading] = useState(false);
   const [addOpen, setAddOpen] = useState(false);

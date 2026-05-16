@@ -137,7 +137,7 @@ export default function ProjectDashboard() {
   const { projectId } = useParams<{ projectId: string }>();
   const [data, setData] = useState<DashboardData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  // const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   const fetchDashboard = async () => {
     if (!projectId) return;
@@ -145,7 +145,7 @@ export default function ProjectDashboard() {
     try {
       const res = await dashboardService.getData(projectId);
       setData(res.data.data);
-      setLastUpdated(new Date());
+      // setLastUpdated(new Date());
     } catch (error) {
       console.error("Failed to fetch dashboard:", error);
     } finally {
@@ -164,7 +164,7 @@ export default function ProjectDashboard() {
     <div className="flex flex-col h-full overflow-auto custom-scroll">
       <div className="py-6 flex flex-col gap-5 px-5 mx-auto w-full">
         <DashboardHeader
-          lastUpdated={lastUpdated}
+          // lastUpdated={lastUpdated}
           onRefresh={fetchDashboard}
           isRefreshing={isLoading}
           healthScore={data.project.healthScore}

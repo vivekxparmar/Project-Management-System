@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { Zap, CheckSquare, Bug, TrendingUp, Clock, Target } from "lucide-react";
+import {
+  Zap,
+  CheckSquare,
+  Bug,
+  TrendingUp,
+  //  Clock, Target
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { DashboardData } from "./ProjectDashboard";
 

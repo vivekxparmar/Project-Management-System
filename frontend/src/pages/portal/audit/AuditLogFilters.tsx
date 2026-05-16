@@ -27,7 +27,7 @@ interface FilterState {
 interface AuditLogFiltersProps {
   filters: FilterState;
   onFilterChange: (filters: FilterState) => void;
-  projectId: string;
+  // projectId: string;
 }
 
 const ENTITY_TYPES = [
@@ -44,7 +44,7 @@ const ENTITY_TYPES = [
 export function AuditLogFilters({
   filters,
   onFilterChange,
-  projectId,
+  // projectId,
 }: AuditLogFiltersProps) {
   const [open, setOpen] = useState(false);
   const [local, setLocal] = useState<FilterState>(filters);

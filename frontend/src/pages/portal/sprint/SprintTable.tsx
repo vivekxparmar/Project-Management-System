@@ -73,7 +73,11 @@ import {
 import { useProjectStore } from "@/stores";
 import { cn } from "@/lib/utils";
 import { useTimer } from "@/hooks";
-import type { Sprint, Task, Subtask } from "@/types";
+import type {
+  Sprint,
+  Task,
+  // Subtask
+} from "@/types";
 
 interface SprintTableProps {
   sprint: Sprint;

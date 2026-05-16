@@ -10,7 +10,7 @@ import {
 } from "recharts";
 import { Badge } from "@/components/ui/badge";
 import { Bug, AlertTriangle } from "lucide-react";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import type { DashboardData } from "./ProjectDashboard";
 
 interface DashboardBugStatsProps {
@@ -44,9 +44,9 @@ export function DashboardBugStats({ bugStats }: DashboardBugStatsProps) {
     value,
   }));
 
-  const activeCount = bugStats.open + bugStats.inProgress;
-  const activePercent =
-    bugStats.total > 0 ? Math.round((activeCount / bugStats.total) * 100) : 0;
+  // const activeCount = bugStats.open + bugStats.inProgress;
+  // const activePercent =
+  //   bugStats.total > 0 ? Math.round((activeCount / bugStats.total) * 100) : 0;
 
   return (
     <div className="bg-card border border-border rounded-2xl p-5 flex flex-col gap-4">

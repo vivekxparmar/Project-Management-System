@@ -1,5 +1,6 @@
 import type { Project, ProjectStatus } from "@/types";
-import { PROJECT_STATUS_OPTIONS, getProjectStatusColor } from "@/lib/constants";
+// import { PROJECT_STATUS_OPTIONS, getProjectStatusColor } from "@/lib/constants";
+import { PROJECT_STATUS_OPTIONS } from "@/lib/constants";
 import { projectService } from "@/services";
 import { useProjectStore } from "@/stores";
 import { toast } from "sonner";
@@ -88,7 +89,9 @@ export default function ProjectKanban({ projects }: ProjectKanbanProps) {
           >
             {col.projects.length === 0 ? (
               <div className="flex-1 flex items-center justify-center rounded-xl border border-dashed border-border py-8">
-                <p className="text-xs text-muted-foreground/50 font-semibold">No projects</p>
+                <p className="text-xs text-muted-foreground/50 font-semibold">
+                  No projects
+                </p>
               </div>
             ) : (
               col.projects.map((project) => (

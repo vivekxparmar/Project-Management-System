@@ -8,16 +8,17 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { getInitials } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 
-interface ChatHeaderProps {
-  projectId: string;
-}
+// interface ChatHeaderProps {
+//   projectId: string;
+// }
 
-export default function ChatHeader({ projectId }: ChatHeaderProps) {
+// export default function ChatHeader({ projectId }: ChatHeaderProps) {
+export default function ChatHeader() {
   const onlineUserIds = useChatStore((s) => s.onlineUserIds);
   const members = useProjectStore((s) => s.currentProject?.members ?? []);
-  const projectName = useProjectStore((s) => s.currentProject?.name ?? "");
+  // const projectName = useProjectStore((s) => s.currentProject?.name ?? "");
 
   const onlineMembers = members.filter((m) =>
     onlineUserIds.includes(m.user._id),

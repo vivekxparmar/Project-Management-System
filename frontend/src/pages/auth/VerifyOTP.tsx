@@ -18,7 +18,7 @@ export default function VerifyOTP() {
 
   const email = location.state?.email as string;
   const type = (location.state?.type as string) ?? "register";
-  const resetToken = location.state?.resetToken as string;
+  // const resetToken = location.state?.resetToken as string;
 
   const [otp, setOtp] = useState<string[]>(Array(OTP_LENGTH).fill(""));
   const [isLoading, setIsLoading] = useState(false);

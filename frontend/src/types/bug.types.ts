@@ -57,6 +57,7 @@ export interface CreateBugPayload {
   priority?: Priority;
   assigneeId?: string;
   images?: File[];
+  attachments?: BugAttachment[];
 }
 
 export interface UpdateBugPayload {

@@ -9,7 +9,7 @@ import {
   Sun,
   LogOut,
   User,
-  Archive,
+  // Archive,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useProject } from "@/hooks";
@@ -50,9 +50,13 @@ export default function Projects() {
     fetchProjects();
   }, []);
 
+  if (isLoading && !isInitialized) {
+    return <PageLoader rows={3} />;
+  }
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* ── HEADER ──────────────────────────────────── */}
+      {/* HEADER */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
         <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
           <img
@@ -159,7 +163,7 @@ export default function Projects() {
         </div>
       </header>
 
-      {/* ── BODY ─────────────────────────────────────── */}
+      {/* BODY */}
       <main className="flex-1 max-w-7xl mx-auto w-full px-6 py-8">
         {/* Page title */}
         <div className="flex items-center justify-between mb-8">

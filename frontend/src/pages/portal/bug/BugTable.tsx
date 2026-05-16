@@ -187,7 +187,7 @@ export default function BugTable({
     const old = bug.status;
     updateBug(bug._id, { status: status as any });
     try {
-      await bugService.updateStatus(bug._id, status, bug.projectId);
+      await bugService.updateStatus(bug._id, status, projectId);
       toast.success("Bug status updated successfully!");
     } catch {
       updateBug(bug._id, { status: old });
@@ -210,7 +210,7 @@ export default function BugTable({
         : null,
     });
     try {
-      await bugService.updateAssignee(bug._id, assigneeId, bug.projectId);
+      await bugService.updateAssignee(bug._id, assigneeId, projectId);
       toast.success("Bug assignee changed successfully!");
     } catch {
       updateBug(bug._id, { assignee: old });
@@ -224,7 +224,7 @@ export default function BugTable({
     setIsDeleting(true);
     removeBug(deleteTarget._id);
     try {
-      await bugService.delete(deleteTarget._id, deleteTarget.projectId);
+      await bugService.delete(deleteTarget._id, projectId);
       toast.success("Bug deleted.");
     } catch {
       toast.error("Failed to delete bug.");
@@ -244,7 +244,7 @@ export default function BugTable({
   return (
     <TooltipProvider delayDuration={0}>
       <div className="h-full flex flex-col min-h-0 px-4">
-        {/* ── TOOLBAR ──────────────────────────────────── */}
+        {/* TOOLBAR */}
         <div className="flex-none space-y-3 py-4">
           <div className="flex items-center gap-2 flex-wrap">
             {/* Search */}
@@ -520,7 +520,7 @@ export default function BugTable({
           )}
         </div>
 
-        {/* ── TABLE ────────────────────────────────────── */}
+        {/* TABLE */}
         <div className="flex-1 min-h-0 overflow-auto custom-scroll">
           <Table className="table-fixed w-full">
             <TableHeader className="bg-background sticky top-0 z-10">

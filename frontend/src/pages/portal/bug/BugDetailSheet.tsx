@@ -37,7 +37,11 @@ import {
   canDeleteBug,
   canReportBug,
 } from "@/lib/constants";
-import { useBugStore, useProjectStore, useAuthStore } from "@/stores";
+import {
+  useBugStore,
+  // useProjectStore,
+  useAuthStore,
+} from "@/stores";
 import { bugService, commentService } from "@/services";
 import { formatRelativeTime } from "@/lib/utils";
 import { cn } from "@/lib/utils";
@@ -60,7 +64,7 @@ export default function BugDetailSheet({
 }: BugDetailSheetProps) {
   const user = useAuthStore((s) => s.user);
   const { updateBug } = useBugStore();
-  const members = useProjectStore((s) => s.currentProject?.members ?? []);
+  // const members = useProjectStore((s) => s.currentProject?.members ?? []);
 
   const [sheetOpen, setSheetOpen] = useState(false);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -187,7 +191,7 @@ export default function BugDetailSheet({
     const fetch = async () => {
       setCommentsLoading(true);
       try {
-        const res = await commentService.getAll(bug._id, bug.projectId);
+        const res = await commentService.getAll(bug._id, projectId);
         setComments(res.data.data);
       } catch {
         // ignore
@@ -196,13 +200,8 @@ export default function BugDetailSheet({
       }
     };
     fetch();
-  }, [bug?._id, sheetOpen, bug?.projectId]);
+  }, [bug?._id, sheetOpen, projectId]);
 
-  // useEffect(() => {
-  //   commentEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  // }, [comments]);
-
-  // Inline edit handlers
   const handleStartEditTitle = () => {
     if (!bug) return;
     setEditTitleValue(bug.title);
@@ -218,7 +217,7 @@ export default function BugDetailSheet({
     try {
       await bugService.update(bug._id, {
         title: editTitleValue.trim(),
-        projectId: bug.projectId,
+        projectId: projectId,
       });
       toast.success("Title updated");
     } catch {
@@ -244,7 +243,7 @@ export default function BugDetailSheet({
     try {
       await bugService.update(bug._id, {
         description: editDescriptionValue,
-        projectId: bug.projectId,
+        projectId: projectId,
       });
       toast.success("Description updated");
     } catch {
@@ -261,20 +260,20 @@ export default function BugDetailSheet({
     setEditingDescription(false);
   };
 
-  const handleUpdate = async (updates: Record<string, any>) => {
-    if (!bug) return;
-    const old = { ...bug };
-    updateBug(bug._id, updates);
-    try {
-      await bugService.update(bug._id, {
-        ...updates,
-        projectId: bug.projectId,
-      });
-    } catch {
-      updateBug(bug._id, old);
-      toast.error("Failed to update bug.");
-    }
-  };
+  // const handleUpdate = async (updates: Record<string, any>) => {
+  //   if (!bug) return;
+  //   const old = { ...bug };
+  //   updateBug(bug._id, updates);
+  //   try {
+  //     await bugService.update(bug._id, {
+  //       ...updates,
+  //       projectId: projectId,
+  //     });
+  //   } catch {
+  //     updateBug(bug._id, old);
+  //     toast.error("Failed to update bug.");
+  //   }
+  // };
 
   const handleSendComment = async () => {
     if (!bug || !commentText.trim() || isSendingComment) return;
@@ -349,13 +348,6 @@ export default function BugDetailSheet({
     },
     [bug],
   );
-
-  const getInitialsInline = (name: string) => {
-    if (!name) return "?";
-    const parts = name.trim().split(" ");
-    if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
-    return (parts[0][0] + (parts[parts.length - 1][0] || "")).toUpperCase();
-  };
 
   return (
     <>

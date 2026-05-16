@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Loader2, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
+// import { ScrollArea } from "@/components/ui/scroll-area";
 import ChatMessageItem from "./ChatMessageItem";
 import ChatTypingIndicator from "./ChatTypingIndicator";
 import type { ChatMessage } from "@/types";
 import { formatDate } from "@/lib/utils";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 
 interface ChatMessageListProps {

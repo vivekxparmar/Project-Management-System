@@ -1,7 +1,7 @@
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { CheckSquare, Clock } from "lucide-react";
 import { formatTrackedTime } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import type { DashboardData } from "./ProjectDashboard";
 
 interface DashboardTaskStatusProps {
@@ -90,7 +90,9 @@ export function DashboardTaskStatus({
             </ResponsiveContainer>
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
               <p className="text-2xl font-bold">{donePercent}%</p>
-              <p className="text-[11px] text-muted-foreground font-semibold">done</p>
+              <p className="text-[11px] text-muted-foreground font-semibold">
+                done
+              </p>
             </div>
           </div>
 
@@ -150,7 +152,9 @@ export function DashboardTaskStatus({
               </div>
             </div>
             <div className="text-right">
-              <p className="text-[11px] text-muted-foreground font-semibold">Estimate</p>
+              <p className="text-[11px] text-muted-foreground font-semibold">
+                Estimate
+              </p>
               <p className="text-sm font-bold">{taskStats.totalEstimate}h</p>
             </div>
           </div>

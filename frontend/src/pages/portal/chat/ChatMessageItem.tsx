@@ -37,7 +37,8 @@ export default function ChatMessageItem({
   isOwn,
   isConsecutive,
 }: ChatMessageItemProps) {
-  const { updateMessage, removeMessage } = useChatStore();
+  // const { updateMessage, removeMessage } = useChatStore();
+  const { updateMessage } = useChatStore();
 
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(message.content);

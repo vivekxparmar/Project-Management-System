@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 // import { useSocket } from "@/hooks";
 import { getSocket } from "@/lib/socket";
-import { useAuthStore } from "@/stores";
+// import { useAuthStore } from "@/stores";
 import { cn } from "@/lib/utils";
 import type { ProjectMember } from "@/types";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -17,7 +17,7 @@ interface ChatInputProps {
 }
 
 export default function ChatInput({ projectId, members }: ChatInputProps) {
-  const user = useAuthStore((s) => s.user);
+  // const user = useAuthStore((s) => s.user);
   // const { emit } = useSocket(projectId);
   const emit = (event: string, data?: any) => getSocket()?.emit(event, data);
   const [text, setText] = useState("");
@@ -30,7 +30,7 @@ export default function ChatInput({ projectId, members }: ChatInputProps) {
   const [mentions, setMentions] = useState<string[]>([]);
   const [showMentions, setShowMentions] = useState(false);
   const [mentionQuery, setMentionQuery] = useState("");
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  // const [selectedIndex, setSelectedIndex] = useState(0);
 
   // Auto-resize textarea
   useEffect(() => {
@@ -162,14 +162,15 @@ export default function ChatInput({ projectId, members }: ChatInputProps) {
         <div className="flex-1 relative">
           {showMentions && filteredMembers.length > 0 && (
             <div className="absolute bottom-14 left-0 z-50 w-64 rounded-xl border bg-background shadow-lg overflow-hidden">
-              {filteredMembers.map((member, index) => (
+              {/* {filteredMembers.map((member, index) => ( */}
+              {filteredMembers.map((member) => (
                 <button
                   key={member._id}
                   type="button"
                   onClick={() => insertMention(member)}
                   className={cn(
                     "w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-muted transition",
-                    index === selectedIndex && "bg-muted",
+                    // index === selectedIndex && "bg-muted",
                   )}
                 >
                   <Avatar className="h-7 w-7">
