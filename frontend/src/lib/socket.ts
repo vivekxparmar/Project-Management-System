@@ -3,10 +3,11 @@ import { io, Socket } from "socket.io-client";
 let socket: Socket | null = null;
 
 export const connectSocket = (token: string) => {
+  const socket_url = import.meta.env.VITE_SOCKET_URL;
   // if (socket?.connected) return socket;
   if (socket?.connected) return socket;
 
-  socket = io("http://localhost:5000", {
+  socket = io(socket_url, {
     auth: { token },
   });
 
