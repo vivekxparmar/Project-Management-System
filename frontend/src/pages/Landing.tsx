@@ -851,7 +851,7 @@ export default function Landing() {
               className="w-7"
             />
             <h1 className="font-semibold">Project Management System</h1>
-            <p className="text-xs text-muted-foreground max-w-xs mt-1">
+            <p className="text-xs text-muted-foreground max-w-xs mt-1 font-semibold">
               Built for developers who hate bloated tools.
             </p>
           </motion.div>
